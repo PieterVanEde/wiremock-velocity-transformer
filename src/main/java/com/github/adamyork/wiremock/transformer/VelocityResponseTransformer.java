@@ -112,11 +112,11 @@ public class VelocityResponseTransformer extends ResponseDefinitionTransformer {
         }).get();
     }
 
-    private Boolean templateDeclaredAndSpecifiesBodyFile(final ResponseDefinition response) {
+    private boolean templateDeclaredAndSpecifiesBodyFile(final ResponseDefinition response) {
         return response.specifiesBodyFile() && templateDeclared(response);
     }
 
-    private Boolean templateDeclared(final ResponseDefinition response) {
+    private boolean templateDeclared(final ResponseDefinition response) {
         final Pattern extension = Pattern.compile(".vm$");
         final Matcher matcher = extension.matcher(response.getBodyFileName());
         return matcher.find();
