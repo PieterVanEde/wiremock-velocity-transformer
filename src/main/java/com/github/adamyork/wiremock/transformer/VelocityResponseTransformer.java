@@ -117,9 +117,7 @@ public class VelocityResponseTransformer extends ResponseDefinitionTransformer {
     }
 
     private boolean templateDeclared(final ResponseDefinition response) {
-        final Pattern extension = Pattern.compile(".vm$");
-        final Matcher matcher = extension.matcher(response.getBodyFileName());
-        return matcher.find();
+    	return response.getBodyFileName().endsWith(".vm");
     }
 
     private Context addHeadersToContext(final HttpHeaders headers, final Context context) {
